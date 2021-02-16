@@ -16,6 +16,8 @@
     --grey: #bababa;
     --off-white: #FAF8F7;
     --white: #fff;
+    --just-white: #fff;
+
 }
 
 /* con esto ya tenemos seteado el margin, padding y border-box, que trabajaremos en todos nuestros contenedores */
@@ -53,7 +55,7 @@ header img{
 .header-title-container{
     width: 90%;
     min-width: 280px;
-    max-width:; /* esto quiere decir q va a estar utilizando siempre un width del 90% de la pantalla, entre 280 y 900px */
+    max-width: 900px; /* esto quiere decir q va a estar utilizando siempre un width del 90% de la pantalla, entre 280 y 900px */
     height: 210px;
     margin-top: 40px; /* para q logre separarse del logotipo */
     text-align: center;
@@ -66,6 +68,7 @@ header img{
    font-size: 2.4rem; 
    font-weight: bold;
    line-height: 2.6rem;/*  espacio entre una linea y otra en el texto del h1 */
+   color: var(--just-white);
 }
 
 .header-title-container p{
@@ -97,10 +100,60 @@ header img{
     color: var(--black);
 }
 
-.header--button span{
+.header-title-container .header--button span{
     display: inline-block;
     width: 13px;
     height: 8px;
     margin-left: 10px;
     background-image: url('./assets/iconos/down-arrow.svg');
+}
+
+main{
+    width: 100%;
+    height: auto; /* el mismo contenido va a ir definiendo la altura del main, x lo tanto la ponemos en auto */
+    background-color: var(--off-white);
+}
+
+.main-exchange-container{
+    width: 100%;
+    height: auto;
+    padding-top: 80px;
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+.main-exchange-container--title{
+    width: 90%;
+    min-width: 288px; /* que no se haga más chico q eso el contenedor del texto */
+    max-width: 900px;
+    margin: 0 auto; /* como no está ocupando el 100% se va a posicionar en el centro siempre */
+}
+
+/* imagen de background */
+.main-exchange-container .backgroundImg{
+    width: 200px;
+    height: 200px;
+    margin: 0 auto; /* como el div no va a ocupar el 100% tenemos hacer q se posicione en el centro a medida que lo crezcamos  */
+    margin-bottom: 50px;
+    background-image: url('./assets/imagenes/Bitcoin.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; /* en caso de q la imagen fuera más chica que el contenedor lo q va a hacer el background-image es replicar esta imagen para intentar cubrir el contendor y nosotros no queremos q se repita en caso de q la imagen fuera más chica. Entonces el no-repeat va a hacer q la imagen se intente estirar sin q se rompa, para q tengamos visibilidad de todo */
+}
+
+.main-exchange-container h2{
+    margin-bottom: 30px; para separa el h2 de la etiqueta <p>
+    font-size: 2.4rem;
+    font-weight: bold;
+    line-height: 2.6rem;
+    color: var(--black);
+
+}
+
+.main-exchange-container p{
+    margin-bottom: 30px;/*  para separar el parrafo del fin de lo q sería nuestro contenedor */
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.6rem;
+    color: #757575; /* como usamos estte color 1 sola vez, no es necesario guardarlo en variables */
 }
