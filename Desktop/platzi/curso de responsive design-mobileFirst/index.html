@@ -28,7 +28,37 @@
             </div>
             <!-- en esta seccion vamos a hacer nuestras tablas -->
             <section class="main-tables-container">
-                <div></div>
+                <!-- en este div separaremos en texto y abajo su table per-se. como tendremos 2 tabla usaremos 2 div de contenedores -->
+                <div class=emain-currency-table">
+                    <p class="currency-table--title">Moneda</p><!-- este es el texto q especifíca de q se trata la tabla -->
+                    <div class="currency-table--container">
+                        <table>
+                            <tr><!-- Esta etiqueta hace referencia a las filas de la tabla -->
+                                <td class="table__top-left"><!-- esta etiq. hace referencia a la infor que va a tener dicha fila. tenemos 4 filas con 2 columnas en la tabla  -->
+                                    Bitcoin
+                                </td>
+                                <td class="table__top-right table__right">$2.12 <span><!-- agregaremos ak el icono correspondiente --></span></td>
+                            </tr>
+                            <tr>
+                                <td>Ethereum</td>
+                                <td class="table__right">$0.12</td>
+                            </tr>
+                            <tr>
+                                <td>Ripple</td>
+                                <td class="table__right">$2.36</td>
+                            </tr>
+                            <tr>
+                                <td class="table__bottom-left">Stellar</td>
+                                <td class="table__bottom-right table__right">$5.13</td>
+                            </tr>
+                        </table>
+                    </div><!-- este será el contenedor de la tabla perse -->
+                    
+                </div>
+                <div class="currency-table--date">
+                    <!--  aca va a ser donde se actualiza la info -->
+                    <p> <b>Actualizado:</b>  18 de febrero 10:53</p>
+                </div>
             </section>
         </section>
         <section></section>
@@ -38,3 +68,8 @@
     <footer></footer>
 </body>
 </html>
+
+
+<!-- https://www.figma.com/file/sMmlQaZldfDcLERYYWe6h4/Bata-Bit?node-id=81%3A132
+
+https://github.com/degranda/batata-bit -->
