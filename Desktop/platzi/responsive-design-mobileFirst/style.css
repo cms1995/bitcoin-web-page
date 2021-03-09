@@ -1,0 +1,580 @@
+/* cuando uno agrega los estilos, por buenas prácticas, conviene acomodarlos con relación a ciertos temas: 
+1° primero ubicamos los estilos que tengan relación al posicionamiento: fixed, relative, static, absolute
+2° despues colocamos lo que tiene q ver con el modelo de caja (Box model) margin, paddin, width, height, content
+3° lo q tiene que ver con Tipografía: fuentes, su tamaño, etc
+4° Temas visuales: shadow-box, border-radius, gradient
+5° miscelanious u otros: reglas de CSS y demás. */
+
+/* variables de colores */ 
+:root{
+    --bitcoin--orange: #F7931A;
+    --soft--orange: #ffe9d5;
+    --secondary-blue: #1A9AF7;
+    --soft-blue: #bfe0f8;
+    --warm-black: #201E1C;
+    --black: #282623;
+    --grey: #bababa;
+    --off-white: #FAF8F7;
+    --white: #fff;
+    --just-white: #fff;
+
+}
+
+/* con esto ya tenemos seteado el margin, padding y border-box, que trabajaremos en todos nuestros contenedores */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    font-size: 62.5%;
+    font-family: 'DM Sans', 'sans-serif';
+}
+
+header{
+    position:relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    min-width: 320px; /* dimension más chica en los celulares */
+    height: 334px;
+    text-align: center;
+    background: linear-gradient(207.8deg, #201E1C 16.69%, #F7931A 100%);/* con esto vamos a poder usar colores con gradientes, algo q no habíamos visto hasta ahora en css. una herramienta buena para ello es también https://cssgradient.io/. Nuestros caso está separado x 2 colores y cuales son los grados en los q se va a dividir y el porcentaje que va a ocupar cada uno */
+
+}
+
+header img{
+    width: 150px;
+    height: 24px;
+    margin-top: 60px;
+    align-self: center; /* con esto vamos a centrar la img. Recorda q como estamos usando flex esta es la forma de poder centrar a un elemento que tenga un contenedor con display flex*/
+}
+
+.header-title-container{
+    width: 90%;
+    min-width: 280px;
+    max-width: 900px; /* esto quiere decir q va a estar utilizando siempre un width del 90% de la pantalla, entre 280 y 900px */
+    height: 210px;
+    margin-top: 40px; /* para q logre separarse del logotipo */
+    text-align: center;
+    align-self: center; /* esto es para q todo el texto se centre y entonces el 10% que quedó de width restante, sea igual para ambos lados(o sea un 5% a la derecha y un 5% a la izquierda) */
+}
+
+
+/* vamos a ser lo más específicos que podamos para no tener conflictos futuros */
+.header-title-container h1{
+   font-size: 2.4rem; 
+   font-weight: bold;
+   line-height: 2.6rem;/*  espacio entre una linea y otra en el texto del h1 */
+   color: var(--just-white);
+}
+
+.header-title-container p{
+    margin-top: 25px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.8rem;
+    color: var(--soft--orange);
+}
+
+
+/* uso de position para boton flotante */
+.header-title-container .header--button{
+    position: absolute; /* recordemos q cuando estamos en position absolute puedo usar top, bottom, left y right para poder mover en esa posición o posiciones, mi contenedor o mi elemento. Si estoy en algún otro position no se va a poder, principalmente con position relative */
+    left: calc(50% - 118px); /* esta es una forma de centrar el boton. La función calc lo q hace es un calculo. Queremos q se vaya al centro con el 50% pero como nuestro botón es muy grande y está ocupando más, evidentemente si se pone al dcentro lo empuja por fuera de la pantalla xq el botón es muy grande, entonces le decimos q lo corra 118px ala derecha para que quede centrado  */
+    top: 270px;
+    display: block;
+    margin-top: 35px;
+    padding: 15px;
+    width: 229px;
+    height: 48px;
+    background-color: var(--off-white);
+    box-shadow: 0px 4px 8px rgba(89, 73, 0. 16);/*  esto es para ponerle sombra al boton */
+    border: none;
+    border-radius: 5px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--black);
+}
+
+.header-title-container .header--button span{
+    display: inline-block;
+    width: 13px;
+    height: 8px;
+    margin-left: 10px;
+    background-image: url('./assets/iconos/down-arrow.svg');
+}
+
+main{
+    width: 100%;
+    height: auto; /* el mismo contenido va a ir definiendo la altura del main, x lo tanto la ponemos en auto */
+    background-color: var(--off-white);
+}
+
+.main-exchange-container{
+    width: 100%;
+    height: auto;
+    padding-top: 80px;
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+.main-exchange-container--title{
+    width: 90%;
+    min-width: 288px; /* que no se haga más chico q eso el contenedor del texto */
+    max-width: 900px;
+    margin: 0 auto; /* como no está ocupando el 100% se va a posicionar en el centro siempre */
+}
+
+/* imagen de background */
+.main-exchange-container .backgroundImg{
+    width: 200px;
+    height: 200px;
+    margin: 0 auto; /* como el div no va a ocupar el 100% tenemos hacer q se posicione en el centro a medida que lo crezcamos  */
+    margin-bottom: 50px;
+    background-image: url('./assets/imagenes/Bitcoin.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; /* en caso de q la imagen fuera más chica que el contenedor lo q va a hacer el background-image es replicar esta imagen para intentar cubrir el contendor y nosotros no queremos q se repita en caso de q la imagen fuera más chica. Entonces el no-repeat va a hacer q la imagen se intente estirar sin q se rompa, para q tengamos visibilidad de todo */
+}
+
+.main-exchange-container h2{
+    margin-bottom: 30px; /* para separa el h2 de la etiqueta <p> */
+    font-size: 2.4rem;
+    font-weight: bold;
+    line-height: 2.6rem;
+    color: var(--black);
+
+}
+
+.main-exchange-container p{
+    margin-bottom: 30px;/*  para separar el parrafo del fin de lo q sería nuestro contenedor */
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.6rem;
+    color: #757575; /* como usamos estte color 1 sola vez, no es necesario guardarlo en variables */
+}
+
+.main-currency-table,
+.main-commissions-table{
+    width: 70%;
+    min-width: 235px;
+    max-width: 500px;
+    height: 360px;
+    margin: 0 auto; /* no le va a agregar un margen de arriba a abajo y de lado izquierdo y derecho, va a calcular una distancia equidistante para q se quede en el centro */
+    font-family: "Inter", sans-serif;
+}
+
+.main-currency-table .currency-table--title{
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    line-height: 2.3rem;
+    color: var(--bitcoin--orange);
+}
+
+
+.main-commissions-table .commissions-table--title{
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    line-height: 2.3rem;
+    color: var(--secondary-blue);
+  }
+
+.currency-table--container,
+.commissions-table--container{
+    width: 90%;
+    min-width: 230px;
+    max-width: 300px;
+    height: 250px;
+    margin: 0 auto; /* como está ocupando el 90 del 100% del contenedor, con esto lo centramos para q se alinee un 5 a la izquierda y un 5 a la derecha */
+}
+
+
+/* para ponerle estilos a la tabla en particular */
+.currency-table--container table,
+.commissions-table--container table{
+    width: 100%;
+    height: 100%;
+}
+
+ .currency-table--container td,
+ .commissions-table--container td{
+     width: 50%; /* nosotros ya hicimos q la tabla ocupe el 10o% del ancho de su contenedor padre. con esto, lo q hacemos es q cada elemento de la fila ocupe la mitad cada uno de ese 100%, para q quede uno al lado del otro ese 50 y 50 */
+     font-size: 1.6rem;
+     font-weight: 500;
+     line-height: 1.9rem;
+     color: var(--grey);
+     background-color: var(--just-white);
+ }
+
+
+ /* vamos a redondear los bordes de las tablas. Esto se hace de manera más manual en las tablas y por lo tanto, tenemos que redondearlo al lado superior izquierdo, superior derecho, inferior izquierdo e inferior derecho (rec)  */
+
+ .currency-table--container .table__top-left,
+ .commissions-table--container .table__top-left,{
+     border-radius: 15px 0 0 0;
+ }
+
+ .currency-table--container .table__top-right,
+ .commissions-table--container .table__top-right{
+     border-radius: 0 15px 0 0;
+ }
+
+ .currency-table--container .table__bottom-left,
+ .commissions-table--container .table__bottom-left {
+    border-radius: 0 0 0 15px;
+}
+
+.currency-table--container .table__bottom-right
+.commissions-table--container .table__bottom-right{
+    border-radius: 0 0 15px 0;
+}
+
+
+/* con LO SIGUIENTE le damos estilos a TODA la parte de la derecha de la tabla */
+
+.commissions-table--container .table__right,
+.currency-table--container .table__right{
+    font-size: 1.4rem;
+    font-weight: normal;
+    line-height: 1.7rem;
+    color: #757575;
+}
+
+.currency-table--container .down{
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-left: 10px; /* esto es para q el icono se separe un poco del texto  */
+    background-image: url("./assets/iconos/trending-down.svg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.currency-table--container .up {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-left: 10px;
+    background-image: url("../assets/iconos/trending-up.svg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+
+.currency-table--date{
+    width: 190px;
+    height: 30px;
+    margin: 0 auto;/* lo centramos  */
+    margin-top: 15px; /* para separar nuestra sección de info. con la table */
+    padding: 8px;/* para generar un espacio interno */
+    background-color: var(--soft--orange);
+    border-radius: 8px;
+}
+
+
+.commissions-table--date{
+    width: 190px;
+    height: 31px;
+    margin: 0 auto;
+    margin-top: 15px;
+    padding: 8px;
+    background-color: var(--soft-blue);
+    border-radius: 8px;
+}
+
+.currency-table--date p,
+.commissions-table--date p{
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    font-weight: 300;
+    color: var(--warm-black);
+}
+
+.main-product-detail{
+    position: relative;
+    width: 100%;
+    min-width: 320px; /* recorda q es la mínima delimitación para celulares */
+    height: auto;
+    padding: 20px 10px;
+    background-color: var(--warm-black);
+}
+
+.product-detail--batata-logo{
+    position: absolute;
+    width: 40px;
+    height: 25px;
+    /* ahora vamos a empezar a generar, como queremos posicionarlo con la función calc. Hay q aprender bien a utilizar calc()*/
+    top: -10px;
+    left: calc(50% - 20px); /* con el % lo colocamos a la mitad y luego con los - 20px  es para q pueda quitar el tamaño de nuestro elemento y ya pueda estar justo en el centro*/
+    background-image: url('./assets/iconos/batata.svg');
+}
+
+
+.product-detail--title{
+    width: 90%;
+    min-width: 288px;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 50px;
+    text-align: center; /* con este alineamos centrado al texto */
+}
+
+.product-detail--title h2{
+    margin-bottom: 20px;
+    font-size: 2.4rem;
+    font-weight: bold;
+    line-height: 2.6rem;
+    color: var(--just-white);
+}
+
+
+.product-detail--title p{
+    margin-bottom: 20px;
+    font-size:  1.4rem;
+    font-weight: 500;
+    line-height: 1.8rem;
+    color: #808080;
+}
+
+.product-detail--card{
+    width: 90%;
+    min-width: 288px;
+    max-width: 400px;  /* cuando llegue a este pixelage que ya podamos modificar las cosas xq lo estamos haciendo para un celular responsivo. */
+    height: 150px;
+    margin: 15px auto;
+    padding: 15px; /* este padding va a ser interno para q podamos posicionar su contenido */
+    background-color: var(--black);
+    border-radius: 5px;
+}
+
+.product-detail--card .icon-card{
+    display: inline-block;
+    width: 20px;
+    height: 20px;   /* a veces hay q ir probando las medidas de un archivo svg xq si los parámetros no son los adecuados, no se va a poder visualizar la totalidad del ícono */
+    margin-bottom: 10px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.clock {
+    background-image: url('./assets/iconos/clock.svg');
+}
+
+.eye {
+    background-image: url('./assets/iconos/eye.svg')
+}
+
+.dolar {
+    background-image: url('./assets/iconos/dollar-sign.svg')
+}
+
+.checked-circle {
+    background-image: url('./assets/iconos/check-circle.svg')
+}
+
+
+
+.product--card-title{
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    line-height: 1.7rem;
+    color: var(--just-white);
+}
+
+.product--card-body{
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.8rem;
+    color: #808080;
+}
+
+.bitcoin-img-container{
+    width: 100%;
+    min-width: 320px;
+    height: 50vh;
+    background-image: url('./assets/imagenes/bitcoinbaby2x.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+
+}
+
+.bitcoin-img-container h2{
+padding-top: 60px;
+font-size: 2.4rem;
+font-weight: bold;
+line-height: 2.6rem;
+color: var(--just-white);
+}
+
+.main-plan-container{
+    width: 100%;
+    min-width: 320px;
+    padding-bottom: 70px;
+    text-align: center;
+}
+
+.plans--title{
+    width: 90%;
+    min-width: 288px;
+    height: auto;/* para q el texto mismo pueda limitar el crecimiento del contenedor  */
+    margin: 0 auto;
+    margin-top: 50px; 
+    /* con margin-top  vamos a generar un pequeño espacio de lo q sería el contenedor de los párrafos, para separar el contenedor de las tarjetas */
+}
+
+
+.plans--title h2{
+    padding-top: 50px;
+    font-size: 2.4rem;
+    font-weight: bold;
+    line-height: 2.6rem;
+    color: var(--black);
+}
+
+.plans--title p{
+    padding-top: 30px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.8rem;
+    color: #757575;
+}
+
+/* para realizaarle un scrool horizontal a determinados elementos, debemos aplicarselos a la clase contenedora, en este caso de las 3 tarjetas.
+overflow-x
+
+La propiedad de CSS overflow-x establece lo que se muestra cuando el contenido desborda los bordes izquierdo y derecho de un elemento a nivel de bloque. Puede que no sea nada, una barra de desplazamiento o el contenido adicional.
+
+overscroll-behavior
+
+la propiedad de css overscroll-behabior establece lo que hace un navegador cuando alcanza el límite de un área de desplazamiento. Es una abreviatura de overscroll-behavior-x y overscroll-behavior-y.
+
+scroll-snap-type
+
+La propiedad CSS scroll-snap-type establece qué tan estrictamente se aplican los puntos de snap en el contenedor de desplazamiento en caso de que haya uno
+
+*/
+.plans-container--slider{
+    display: flex;
+    height: 316px;/* la altura del contenedor tienen q ser un cachito + alto q las tarjetas mismas. */
+    overflow-x: scroll;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+}
+
+.plans-container--card{
+    position: relative; /* para poder generar ese efecto flotante en nuestra etiqueta de párrafo */
+    scroll-snap-align: center; /* nuestras tarjetas tienen q tener una regla en css para q tengamos una pequeña animación en la parte del scroll. lo q hace es intenta centrar el scroll automáticamente para cuando estes haciendo el scroll, te lleve al centro del elemento ypuedas ver el elemento */
+    width: 70%; /* en el diseño, la targeta no esta utilizando el 100% de su contenedor */
+    min-width: 290px; /*  no es 320 xq acordate q el tamaño de la tarjeta es menor y tenemos q calcular un espacio reducido para q no se haga más chico que eso */
+    max-width: 300px;
+    height: 250px;
+    margin: 50px 5px 0; /* con el auto centramos el contenido pq tenga un margen distribuido de izquierda a derecha, en partes iguales */
+    padding: 0 15px; /* esto es para q mi contenedor, en la parte del centro, empiece a centrar un poco a su contenido y tenga como un borde y no tenga q preocuparme x no darle ese pequeño espacio en el borde */
+    background-color: var(--just-white);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(89,73,30,0.16);
+}
+
+.recomendado{
+    position: absolute; /* ya vemos q su padre tiene un position relative x lo q vamos a poder lograr ese efecto */
+    width: 120px;
+    height: 31px; /* cuando ocupamos una etiqueta de parrafo(a diferencia de lo q sería un span) ahí si podemos darle dimensiones para después centrar un poco el texto. X eso q no estamos utilizando 1 etiqueta contenedora como div sino literalmente el texto */
+    padding: 6px;
+    top: -15px; /* con esto va a salir de su elemento padre */
+    left: calc(50% - 60px); /* con esto vamos a posicionarlo exactamentedonde queremos. centrado */
+    font-size: 1.2rem;
+    background-color: var(--bitcoin--orange);
+    border-radius: 8px;
+    color: var(--just-white);
+    
+}
+
+.plan-card--title{
+    padding-top: 30px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.8rem;
+    color: black;
+}
+
+.plan-card--price{
+    padding: 5px 0;
+    font-size: 5.2rem;
+    font-weight: bold;
+    line-height: 5.3rem;
+    color:black;
+}
+
+.plan-card--price span{
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+.plan-card--benefits{
+    font-size: 1.2rem;
+    color: #757575;
+}
+
+.plan-card--call{ /* el botón */
+    width: 150px;
+    height: 48px;
+    margin-top: 20px;
+    background-color: #faf8f7;
+    border: 2px solid var(--bitcoin--orange);
+    border-radius: 4px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    line-height: 1.8rem;
+    color: var(--black);
+}
+
+.plan-card--call span{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url('./assets/iconos/orange-right-arrow.svg');
+    vertical-align: text-bottom; /*con esto alineamos el texto con la imagen  */
+}
+
+
+footer{
+    display: flex; /* ya sabes q esto te enfrenta las 2 secciones del footer una frente a la otra. */
+    width: 100%;
+    height: 150px;
+    background-color: var(--bitcoin--orange);
+}
+
+footer section{
+    display: flex;
+    width: 50%; /* con esto los alinearemos de manera horizontal y vertical de forma pareja  */
+    justify-content: center;
+    align-items: center;
+}
+
+footer .contact-left ul{
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.8rem;
+    list-style: none;
+}
+
+.contact-left li{
+    margin: 10px 0;
+}
+
+.contact-left a{
+    text-decoration: none;
+    color: var(--just-white);
+}

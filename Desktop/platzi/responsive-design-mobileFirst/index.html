@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="estilos/tablet.css" media="(min-width: 930px)">
+    <title>Document</title>
+</head>
+<body>
+    <!-- recordemos q x buenas prácticas, cualquier página, solo puede tener un h1. Por temas de SEO -->
+    <header>
+        <img src="./assets/imagenes/logo.svg" alt="">
+
+        <!-- en la metodología BEM, el header se convierte en el bloque principal. Y el title-container es como el elemento. Entonces es es el contenedor del título que es nuestro h1 y parte del párrafo. -->
+        <div class="header-title-container">
+            <h1>Se parte de la tendencia en el intercambio de criptomonedas</h1>
+            <p>Batatabit te asesora a adquirir tus criptos para proteger tu capital</p>
+            <a href="#planes" class="header--button">Conocé nuestros planes <span></span></a><!--  este va a ser un botón q nos lleva a otro sección y al q le vamos a dar estilos  -->
+        </div>
+    </header>
+    <main>
+        <section class="main-exchange-container">
+            <div class="backgroundImg"></div>
+            <div class="main-exchange-container--title"><!-- vamos a usar este div como contenedor de texto -->
+                <h2>Te ofrecemos todas las tasas de cambio</h2>
+                <p>Te proveemos la información en tiempo real de todas las casas de cambio y de las divisas más importantes del mundo</p>
+            </div>
+            <!-- en esta seccion vamos a hacer nuestras tablas -->
+            <section class="main-tables-container">
+                <!-- en este div separaremos en texto y abajo su table per-se. como tendremos 2 tabla usaremos 2 div de contenedores -->
+                <div class= "main-currency-table">
+                    <p class="currency-table--title">Moneda</p><!-- este es el texto q especifíca de q se trata la tabla -->
+                    <div class="currency-table--container">
+                        <table>
+                            <tr><!-- Esta etiqueta hace referencia a las filas de la tabla -->
+                                <td class="table__top-left"><!-- esta etiq. hace referencia a la infor que va a tener dicha fila. tenemos 4 filas con 2 columnas en la tabla  -->
+                                    Bitcoin
+                                </td>
+                                <td class="table__top-right table__right">$2.12 <span class="down"><!-- agregaremos ak el icono correspondiente. a este span le creamos la clase down xq tiene su icono q va a hacia abajo --></span></td>
+                            </tr>
+                            <tr>
+                                <td>Ethereum</td>
+                                <td class="table__right">$0.12 <span class="up"></span></td> 
+                            </tr>
+                            <tr>
+                                <td>Ripple</td>
+                                <td class="table__right">$2.36 <span class="down"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="table__bottom-left">Stellar</td>
+                                <td class="table__bottom-right table__right">$5.13 <span class="down"></span></td>
+                            </tr>
+                        </table>
+                    </div><!-- este será el contenedor de la tabla perse -->
+                </div>    
+                
+                <div class="currency-table--date">
+                    <!--  aca va a ser donde se actualiza la info -->
+                    <p> <b>Actualizado:</b>  18 de febrero 10:53</p>
+                </div>
+
+          <div class="main-commissions-table">
+            <p class="commissions-table--title">Comisiones</p>
+            <div class="commissions-table--container">
+              <table>
+                <tr>
+                  <td class="table__top-left">Bitrade</td>
+                  <td class="table__top-right table__right">$12.96</td>
+                </tr>
+                <tr>
+                  <td>Bitpreco</td>
+                  <td class="table__right">$13.07</td>
+                </tr>
+                <tr>
+                  <td>Novadax</td>
+                  <td class="table__right">$13.15</td>
+                </tr>
+                <tr>
+                  <td class="table__bottom-left">Coinext</td>
+                  <td class="table__bottom-right table__right">$14.96</td>
+                </tr>
+              </table>
+            </div>
+            <div class="commissions-table--date">
+              <p><b>Actualizado:</b>19 Julio 23:48</p>
+            </div>
+          </div>
+        </div>                
+            </section>
+        </section>
+                    <!-- inicio nueva seccion -->
+        <section class="main-product-detail">
+          <!-- con este span pondremos, en el css, el icono de la papa. Solemos usar esa etiqueta para poner posteriomente icono en el css -->
+          <span class="product-detail--batata-logo"></span>
+          <div class="product-detail--title">
+            <h2>Nuestro producto no tiene comparación</h2>
+            <p>Diseñado para su uso cotidiano</p>
+          </div>
+          <!-- esta nueva etiqueta de section será el contenedor de las tarjetas -->
+          <section class="product-cards--container">
+            <article class="product-detail--card">
+              <!-- EL NOMBRE DE LA CLASE SPAN VA A SER EL DEL ICONO Q VAMOS A COLOCAR -->
+              <span class="icon-card clock"></span>
+              <p class="product--card-title">Tiempo real</p>
+              <p class="product--card-body">Nuestra API toma información minuto a minuto sobre las tasas más determinantes de comportamiento</p>
+            </article>
+            <!--inicia segunda tarjeta -->
+            <article class="product-detail--card">
+              <span class="icon-card eye"></span>
+              <p class="product--card-title">Todas las tasas están a la vista</p>
+              <p class="product--card-body">Nuestra API toma información minuto a minuto sobre todas las tasas del mercado más influyentes. Jamás se ocultará ninguna</p>
+            </article>
+
+            <!--inicia tercera tarjeta -->
+            <article class="product-detail--card">
+              <span class="icon-card dolar"></span>
+              <p class="product--card-title">Compara las distintas criptomonedas</p>
+              <p class="product--card-body">Nuestra API toma información minuto a minuto sobre todas las tasas del mercado más influyentes. Jamás se ocultará ninguna</p>
+            </article>
+            
+            <!--inicia cuarta tarjeta -->
+            <article class="product-detail--card">
+              <span class="icon-card checked-circle"></span>
+              <p class="product--card-title">Información oficial</p>
+              <p class="product--card-body">Nuestra API toma información minuto a minuto sobre todas las tasas del mercado más influyentes. Jamás se ocultará ninguna</p>
+            </article>
+          </section>
+        </section>
+        
+        <!-- nueva sección comodín -->
+        <section class="bitcoin-img-container">
+          <h2>Conoce nuestra prupuesta</h2>
+        </section>
+
+        <!-- nueva sección de opciones de planes -->
+        <section id="planes" class="main-plan-container">
+          <div class="plans--title">
+            <h2>Elige el plan que se adapte a tus necesidades.</h2>
+            <p>Todos los planes te dan acceso a nuestra plataforma</p>
+          </div>
+          <section class="plans-container--slider">
+            <article class="plans-container--card">
+              <p class="recomendado recomendado--basic">Básico</p>
+              <div class="plan-info-container">
+                <h3 class="plan-card--title">Pago Mensual</h3>
+                <p class="plan-card--price"><span></span> $19</p>
+                <p class="plan-card--benefits">*Plan básico aunque con todas ventajas.</p>
+                <button class="plan-card--call">Escoge este <span></span></button>
+                <!-- ca means call to accion -->
+              </div>
+            </article>            
+            <article class="plans-container--card">
+              <p class="recomendado">Recomendado</p>
+              <div class="plan-info-container">
+                <h3 class="plan-card--title">Pago Anual</h3>
+                <p class="plan-card--price"><span></span>$99</p>
+                <p class="plan-card--benefits">ahorra $96 con respecto al plan mensual</p>
+                <button class="plan-card--call">comprar ahora <span></span></button>
+              </div>
+            </article>
+            <article class="plans-container--card main-plans__card--limited">
+              <p class="recomendado recomendado--limited">Limitado</p>
+              <div class="plan-info-container">
+                <h3 class="plan-card--title">De por vida</h3>
+                <p class="plan-card--price"><span></span> $199</p>
+                <p class="plan-card--benefits">*Exclusiva para los primeros 100 clientes con un precio especial.</p>
+                <button class="plan-card--call plan-card--call__limited">Escoge este <span></span></button>
+                <!-- ca means call to accion -->
+              </div>
+            </article>
+          </section>
+        </section>
+    </main>
+    <footer>
+      <section class="contact-left">
+        <ul>
+          <li><a href="">Linkedin</a></li>
+          <li><a href=""></a>Crunchbase</li>
+          <li><a href=""></a>HackerNews</li>
+        </ul>
+      </section>
+      <section class="icon-right">
+        <img src="./assets/imagenes/logo-footer.svg" alt="Logo de Batatabit 2020">
+      </section>
+    </footer>
+</body>
+</html>
+<!-- https://www.figma.com/file/sMmlQaZldfDcLERYYWe6h4/Bata-Bit?node-id=81%3A132
+
+
+
+https://github.com/degranda/batata-bit -->

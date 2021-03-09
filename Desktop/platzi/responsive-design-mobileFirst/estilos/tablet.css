@@ -1,0 +1,18 @@
+.main-tables-container{
+    display: flex;
+    width: 930px;
+    margin: 0 auto;
+}
+
+
+.product-cards--container{ /*  con esto las tarjetas pasaran a 2 columnas. Y el contenedor está en un 100% */
+    display: flex; /* como no lo tenemos aún en un display, lo asignamos aquí */
+    flex-wrap: wrap;/* recordemos q si queremos hacer q el contenido se empiece a acomodar una vez q estamos con display flex, para q no genere un overflow, vamos a utilizar el flexwrap */
+    width: 930px;
+    margin: 0 auto;
+}
+
+.plans-container--slider{
+    justify-content: center;/* como estamos usando flex, eso nos centraría automáticamente cuando empiece los 930px */
+}
+
